@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+        <link rel="stylesheet" href="style.css">
+    <style>
+        @layer base {
+
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                overscroll-behavior: none;
+            }
+
+            main> :first-child {
+                margin-top: 0 !important;
+            }
+
+            main> :last-child {
+                margin-bottom: 0 !important;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        @media (max-width: 1023px) {
+            header {
+                isolation: isolate;
+            }
+
+            #mobile-drawer {
+                max-height: calc(100vh - 5rem);
+                overflow-y: auto;
+            }
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+        id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface-container-highest": "#2a3645", "on-tertiary-fixed": "#011c36", "on-error-container": "#ffdad6", "surface-container": "#15202f", "inverse-on-surface": "#263140", "tertiary-container": "#0c2640", "on-background": "#d7e3f7", "inverse-primary": "#495f82", "primary-container": "#0b2545", "secondary-container": "#735501", "on-primary": "#193151", "surface": "#081422", "on-secondary-container": "#f6cb72", "secondary": "#ebc169", "on-secondary": "#402d00", "on-secondary-fixed": "#261a00", "on-primary-container": "#778db2", "on-surface-variant": "#c4c6cf", "tertiary": "#b1c8ea", "error-container": "#93000a", "surface-container-lowest": "#040f1d", "on-error": "#690005", "on-tertiary-fixed-variant": "#314864", "surface-dim": "#081422", "surface-variant": "#2a3645", "surface-bright": "#2f3a49", "on-primary-fixed-variant": "#314769", "primary": "#b1c7f0", "inverse-surface": "#d7e3f7", "on-surface": "#d7e3f7", "surface-container-high": "#1f2b3a", "on-secondary-fixed-variant": "#5c4300", "secondary-fixed": "#ffdea0", "outline": "#8e9098", "tertiary-fixed": "#d2e4ff", "background": "#081422", "surface-tint": "#b1c7f0", "primary-fixed-dim": "#b1c7f0", "on-primary-fixed": "#001c3b", "error": "#ffb4ab", "primary-fixed": "#d5e3ff", "surface-container-low": "#111c2b", "on-tertiary-container": "#778ead", "tertiary-fixed-dim": "#b1c8ea", "on-tertiary": "#1a324c", "outline-variant": "#44474e", "secondary-fixed-dim": "#ebc169" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "gutter": "1.5rem", "space-lg": "1.5rem", "space-md": "1rem", "margin-mobile": "1.25rem", "space-xl": "2.5rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "gutter-mobile": "1rem", "margin": "3rem" }, "fontFamily": { "headline-lg": ["Oswald"], "body-sm": ["Plus Jakarta Sans"], "label-lg": ["Oswald"], "headline-md": ["Oswald"], "headline-sm": ["Oswald"], "body-md": ["Plus Jakarta Sans"], "headline-xl-mobile": ["Oswald"], "headline-lg-mobile": ["Oswald"], "label-sm": ["Oswald"], "headline-xl": ["Oswald"], "body-lg": ["Plus Jakarta Sans"], "label-md": ["Oswald"] }, "fontSize": { "headline-lg": ["44px", { "lineHeight": "52px", "letterSpacing": "0.01em", "fontWeight": "600" }], "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "label-lg": ["16px", { "lineHeight": "22px", "letterSpacing": "0.08em", "fontWeight": "600" }], "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "0.01em", "fontWeight": "600" }], "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "0.02em", "fontWeight": "600" }], "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "headline-xl-mobile": ["40px", { "lineHeight": "48px", "letterSpacing": "0.02em", "fontWeight": "700" }], "headline-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "0.01em", "fontWeight": "600" }], "label-sm": ["11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "500" }], "headline-xl": ["64px", { "lineHeight": "72px", "letterSpacing": "0.02em", "fontWeight": "700" }], "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }], "label-md": ["13px", { "lineHeight": "18px", "letterSpacing": "0.06em", "fontWeight": "500" }] } } } };</script>
+</head>
+
+<body
+    class="bg-surface font-body-md text-body-md text-on-surface antialiased selection:bg-secondary selection:text-on-secondary">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-md border-b border-secondary/30">
+        <div class="h-20 max-w-[1320px] mx-auto px-margin-mobile lg:px-margin flex items-center justify-between">
+            <div class="flex items-center gap-space-md"><img alt="Hornstars Football Academy Crest"
+                    class="h-14 w-auto object-contain"
+                    src="https://lh3.googleusercontent.com/aida/AEtjO1X1Ky4N5oo9yFg8brWsZr434iZw8RX-7tAk-2MCp0NqmND4GAtXqTDrjzRH-YsSwi2wB4jyP2MTxV0zeEaU3eApPS95-GazWoKBEO_LeywHrLyLyhhdxy3dQCBznHDvJ2udyYiw983kd-xZEuOT0dRm8uYxTrgf5nwJKId0jhiAoL3HJrtFa0iHXXybED0uJgYfCI-dfKZfjC4NeI7TJSxPGNeWAcPLiIpPColONEwaWdLtRcLI_zVD25gsOl1hjvzYa2u422LEnw" />
+                <div class="flex flex-col"><span
+                        class="font-headline-sm text-headline-sm uppercase tracking-wider text-on-surface">Hornstars</span><span
+                        class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Football
+                        Academy</span></div>
+            </div>
+            <nav class="hidden lg:flex items-center gap-space-lg"
+                data-active-classes="text-secondary border-b-2 border-secondary font-semibold"><a aria-current="page"
+                    class="uppercase tracking-wider transition-colors py-space-xs text-secondary border-b-2 border-secondary font-semibold"
+                    data-path="home" href="#hero">Home</a><a
+                    class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors py-space-xs"
+                    data-path="about" href="#about">About</a><a
+                    class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors py-space-xs"
+                    data-path="academy" href="#philosophy">Academy</a><a
+                    class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors py-space-xs"
+                    data-path="programs" href="#programs">Programs</a><a
+                    class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors py-space-xs"
+                    data-path="gallery" href="#gallery">Gallery</a><a
+                    class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors py-space-xs"
+                    data-path="contact" href="#contact">Contact</a></nav>
+            <div class="hidden lg:flex items-center gap-space-md"><a
+                    class="font-label-md text-label-md uppercase tracking-widest px-space-md py-space-sm bg-secondary text-on-secondary rounded-lg hover:bg-secondary-fixed transition-colors"
+                    data-path="join-the-academy" href="#join">Join the Academy</a><img alt="Profile"
+                    class="w-8 h-8 rounded-full object-cover ring-1 ring-secondary/40"
+                    src="https://lh3.googleusercontent.com/aida/AEtjO1X1Ky4N5oo9yFg8brWsZr434iZw8RX-7tAk-2MCp0NqmND4GAtXqTDrjzRH-YsSwi2wB4jyP2MTxV0zeEaU3eApPS95-GazWoKBEO_LeywHrLyLyhhdxy3dQCBznHDvJ2udyYiw983kd-xZEuOT0dRm8uYxTrgf5nwJKId0jhiAoL3HJrtFa0iHXXybED0uJgYfCI-dfKZfjC4NeI7TJSxPGNeWAcPLiIpPColONEwaWdLtRcLI_zVD25gsOl1hjvzYa2u422LEnw" />
+            </div>
+            <div class="flex lg:hidden items-center"><button
+                    aria-controls="mobile-drawer" aria-expanded="false" aria-label="Open navigation"
+                    type="button"
+                    class="w-12 h-12 flex items-center justify-center text-on-surface hover:text-secondary transition-colors"
+                    id="mobile-menu-btn"><span class="material-symbols-outlined text-3xl"
+                        id="mobile-menu-icon">menu</span></button></div>
+        </div>
+        <div class="hidden lg:hidden bg-surface-container-low border-b border-secondary/20 px-margin-mobile py-space-lg"
+            id="mobile-drawer">
+            <nav class="flex flex-col gap-space-md" data-active-classes="text-secondary font-semibold"><a
+                    aria-current="page" class="uppercase tracking-wider transition-colors text-secondary font-semibold"
+                    data-path="home" href="#hero">Home</a><a
+                    class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors"
+                    data-path="about" href="#about">About</a><a
+                    class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors"
+                    data-path="academy" href="#philosophy">Academy</a><a
+                    class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors"
+                    data-path="programs" href="#programs">Programs</a><a
+                    class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors"
+                    data-path="gallery" href="#gallery">Gallery</a><a
+                    class="font-label-lg text-label-lg uppercase tracking-wider text-on-surface-variant hover:text-on-surface transition-colors"
+                    data-path="contact" href="#contact">Contact</a>
+                <div class="pt-space-sm border-t border-outline-variant/30"><a
+                        class="block text-center font-label-md text-label-md uppercase tracking-widest px-space-md py-space-sm bg-secondary text-on-secondary rounded-lg hover:bg-secondary-fixed transition-colors"
+                        data-path="join-the-academy" href="#join">Join the Academy</a></div>
+            </nav>
+        </div>
+    </header>
+    <main class="w-full pt-20 bg-surface min-h-screen">
+        <div class="flex flex-col w-full">
+            <!-- ========================================================================= -->
+            <!-- 1. HERO SECTION                                                           -->
+            <!-- ========================================================================= -->
+            <section class="relative w-full -mt-20 overflow-hidden bg-surface" id="hero">
+                <!-- Cinematic Sunset Training Background -->
+                <div class="absolute inset-0 z-0 bg-cover bg-center"
+                    style="background-image: url('https://lh3.googleusercontent.com/aida/AEtjO1X1Ky4N5oo9yFg8brWsZr434iZw8RX-7tAk-2MCp0NqmND4GAtXqTDrjzRH-YsSwi2wB4jyP2MTxV0zeEaU3eApPS95-GazWoKBEO_LeywHrLyLyhhdxy3dQCBznHDvJ2udyYiw983kd-xZEuOT0dRm8uYxTrgf5nwJKId0jhiAoL3HJrtFa0iHXXybED0uJgYfCI-dfKZfjC4NeI7TJSxPGNeWAcPLiIpPColONEwaWdLtRcLI_zVD25gsOl1hjvzYa2u422LEnw');">
+                </div>
+                <!-- High-Contrast Dual Scrim Layer -->
+                <div
+                    class="absolute inset-0 z-0 bg-gradient-to-b from-surface/90 via-surface-container-lowest/80 to-surface">
+                </div>
+                <div
+                    class="absolute inset-0 z-0 bg-gradient-to-r from-surface-container-lowest via-surface-container-low/70 to-transparent">
+                </div>
+                <div
+                    class="relative z-10 max-w-[1320px] mx-auto px-margin-mobile lg:px-margin pt-36 pb-20 lg:pt-44 lg:pb-28 flex flex-col justify-between min-h-[92vh]">
+                    <!-- Upper Hero Content -->
+                    <div class="max-w-3xl flex flex-col items-start gap-space-md">
+                        <!-- Academy Crest + Status Chip -->
+                        <div class="flex items-center gap-space-md">
+                            <div
+                                class="relative flex items-center justify-center p-2 rounded-xl bg-surface-container-lowest shadow-2xl">
+                                <img alt="Hornstars Football Academy Crest"
+                                    class="w-16 h-16 sm:w-20 sm:h-20 object-contain drop-shadow-[0_0_16px_rgba(235,193,105,0.45)]"
+                                    src="https://lh3.googleusercontent.com/aida/AEtjO1X1Ky4N5oo9yFg8brWsZr434iZw8RX-7tAk-2MCp0NqmND4GAtXqTDrjzRH-YsSwi2wB4jyP2MTxV0zeEaU3eApPS95-GazWoKBEO_LeywHrLyLyhhdxy3dQCBznHDvJ2udyYiw983kd-xZEuOT0dRm8uYxTrgf5nwJKId0jhiAoL3HJrtFa0iHXXybED0uJgYfCI-dfKZfjC4NeI7TJSxPGNeWAcPLiIpPColONEwaWdLtRcLI_zVD25gsOl1hjvzYa2u422LEnw" />
+                            </div>
+                            <div class="flex flex-col">
+                                <span
+                                    class="inline-flex items-center gap-2 px-3 py-1 rounded bg-secondary/15 text-secondary font-label-md text-label-md uppercase tracking-widest">
+                                    <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+                                    2024 / 2025 Academy Season Open
+                                </span>
+                                <span
+                                    class="text-on-surface-variant font-label-sm text-label-sm tracking-wider uppercase mt-1">FIFA
+                                    Registered Youth Pathway</span>
+                            </div>
+                        </div>
+                        <!-- Headline -->
+                        <h1
+                            class="font-headline-xl text-headline-xl uppercase tracking-tight text-on-surface text-balance mt-space-sm">
+                            Building The Next Generation of <span class="text-secondary">Football Stars</span>
+                        </h1>
+                        <!-- Supporting Subtext -->
+                        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+                            Developing talent, discipline, confidence, and character through football. Our elite
+                            curriculum prepares young athletes for professional trials, collegiate excellence, and
+                            lifelong leadership.
+                        </p>
+                        <!-- CTA Action Buttons -->
+                        <div class="flex flex-wrap items-center gap-space-md pt-space-sm w-full sm:w-auto">
+                            <a class="inline-flex items-center justify-center gap-2 px-space-xl py-space-md bg-secondary hover:bg-secondary-fixed text-on-secondary font-label-lg text-label-lg uppercase tracking-wider rounded transition-all shadow-lg hover:shadow-secondary/25 hover:scale-[1.02]"
+                                href="#contact">
+                                <span>Join Hornstars</span>
+                                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                            </a>
+                            <a class="inline-flex items-center justify-center gap-2 px-space-xl py-space-md bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg uppercase tracking-wider rounded transition-all"
+                                href="#programs">
+                                <span>Explore Academy</span>
+                                <span class="material-symbols-outlined text-lg">sports_soccer</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Trust Badges Strip -->
+                    <div
+                        class="mt-space-xl pt-space-lg grid grid-cols-1 sm:grid-cols-3 gap-space-md bg-surface-container-lowest/80 backdrop-blur-md rounded-xl p-space-md">
+                        <div class="flex items-center gap-space-md">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+                                <span class="material-symbols-outlined text-2xl">verified_user</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="font-headline-sm text-headline-sm uppercase text-on-surface">UEFA &amp;
+                                    FA</span>
+                                <span class="font-body-sm text-body-sm text-on-surface-variant">Certified Coaching
+                                    Staff</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-space-md">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+                                <span class="material-symbols-outlined text-2xl">group</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="font-headline-sm text-headline-sm uppercase text-on-surface">Ages
+                                    6–19</span>
+                                <span class="font-body-sm text-body-sm text-on-surface-variant">Boys &amp; Girls
+                                    Squads</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-space-md">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-secondary">
+                                <span class="material-symbols-outlined text-2xl">workspace_premium</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="font-headline-sm text-headline-sm uppercase text-on-surface">Pro
+                                    Pathway</span>
+                                <span class="font-body-sm text-body-sm text-on-surface-variant">Direct Scout
+                                    Affiliations</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ========================================================================= -->
+            <!-- 2. ACADEMY INTRODUCTION ("More Than Football")                            -->
+            <!-- ========================================================================= -->
+            <section class="w-full bg-surface-container-low py-space-xl lg:py-28" id="about">
+                <div class="max-w-[1320px] mx-auto px-margin-mobile lg:px-margin">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+                        <!-- Left: Narrative & Principles -->
+                        <div class="lg:col-span-6 flex flex-col gap-space-md">
+                            <div class="flex items-center gap-space-xs">
+                                <span class="h-1 w-8 bg-secondary rounded"></span>
+                                <span class="font-label-md text-label-md uppercase tracking-widest text-secondary">About
+                                    Hornstars</span>
+                            </div>
+                            <h2 class="font-headline-xl text-headline-xl uppercase tracking-tight text-on-surface">
+                                More Than <span class="text-secondary">Football</span>
+                            </h2>
+                            <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+                                At Hornstars Football Academy, we believe football is the ultimate classroom. While we
+                                hold our athletes to the highest technical standards on the pitch, our true mission is
+                                forging resilient, disciplined leaders equipped for life beyond the stadium lines.
+                            </p>
+                            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                                Through structured tactical education, sports biomechanics, academic monitoring, and
+                                positive team synergy, we nurture each player's singular genius within an unshakeable
+                                collective framework.
+                            </p>
+                            <!-- Highlights (Clean SVG Icons, Zero Emojis) -->
+                            <div class="flex flex-col gap-space-sm pt-space-xs">
+                                <div class="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-container">
+                                    <div class="p-1 rounded bg-secondary/15 text-secondary mt-0.5">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                            <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2.5"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <span
+                                            class="font-headline-sm text-headline-sm uppercase text-on-surface block">Individual
+                                            Technical Mastery &amp; Ball IQ</span>
+                                        <span class="font-body-sm text-body-sm text-on-surface-variant">Mastering ball
+                                            mastery in high-density pockets, spatial perception, and lightning decision
+                                            making.</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-container">
+                                    <div class="p-1 rounded bg-secondary/15 text-secondary mt-0.5">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                            <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2.5"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <span
+                                            class="font-headline-sm text-headline-sm uppercase text-on-surface block">Holistic
+                                            Athletic Development &amp; Injury Prevention</span>
+                                        <span class="font-body-sm text-body-sm text-on-surface-variant">Age-calibrated
+                                            physical conditioning, deceleration mechanics, core stability, and dietary
+                                            literacy.</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-space-sm p-space-sm rounded-lg bg-surface-container">
+                                    <div class="p-1 rounded bg-secondary/15 text-secondary mt-0.5">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                            <path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2.5"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <span
+                                            class="font-headline-sm text-headline-sm uppercase text-on-surface block">Mentorship,
+                                            Academic Discipline &amp; Character</span>
+                                        <span class="font-body-sm text-body-sm text-on-surface-variant">Strict academic
+                                            tracking, community engagement, and sportsmanship rooted in humility and
+                                            honor.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pt-space-sm">
+                                <a class="inline-flex items-center gap-2 font-label-lg text-label-lg uppercase tracking-wider text-secondary hover:text-secondary-fixed transition-colors"
+                                    href="#philosophy">
+                                    <span>Discover Our Philosophy</span>
+                                    <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                                        fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                        <path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Right: Tactical Whiteboard Photo & Academy Shield Accent -->
+                        <div class="lg:col-span-6 relative">
+                            <div class="relative rounded-xl overflow-hidden shadow-2xl bg-surface-container-high">
+                                <img alt="Hornstars coach briefing young players on a tactical board"
+                                    class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfg8X2XFDbQ-thCI5NhetAsnBTs5OxdJ5SddR4atLyoSwsTsUje3ZFgBSN7o8mc0L9Yiz2TKI6pymRewzTzxXbAzmo8lRkPAkwRUMRoUhdDGDaXma2c6pPUKYsOIA9OeOXo15KzHdMRUCGrfIkmSj9XAqB3qwS_09tIpMLf5KyMb6R0_gRLb6szStJT8WWR72CwfKZhrHDfMpoFEAPHZ6CUg0o-P-3GGe6HKEEaJ336kebSbwdY1KA" />
+                                <!-- Tactical Scrim Accent -->
+                                <div
+                                    class="absolute bottom-0 inset-x-0 p-space-md bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/80 to-transparent flex items-center justify-between">
+                                    <div>
+                                        <span
+                                            class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block">Tactical
+                                            Briefing Session</span>
+                                        <span class="font-body-sm text-body-sm text-on-surface">Modern 4-3-3 pressing
+                                            mechanics &amp; zone management</span>
+                                    </div>
+                                    <div
+                                        class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center">
+                                        <span class="material-symbols-outlined text-lg">schema</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Floating Pedigree Metric Badge -->
+                            <div
+                                class="hidden sm:flex absolute -bottom-6 -left-6 bg-surface-container-highest/95 backdrop-blur-md p-space-md rounded-xl shadow-xl flex-col">
+                                <span class="font-headline-lg text-headline-lg text-secondary">100%</span>
+                                <span
+                                    class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface">Commitment
+                                    to Growth</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ========================================================================= -->
+            <!-- 3. PROGRAMS SECTION                                                       -->
+            <!-- ========================================================================= -->
+            <section class="w-full bg-surface py-space-xl lg:py-28" id="programs">
+                <div class="max-w-[1320px] mx-auto px-margin-mobile lg:px-margin flex flex-col gap-space-xl">
+                    <!-- Section Header -->
+                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+                        <div class="flex flex-col gap-space-xs max-w-2xl">
+                            <div class="flex items-center gap-space-xs">
+                                <span class="h-1 w-8 bg-secondary rounded"></span>
+                                <span
+                                    class="font-label-md text-label-md uppercase tracking-widest text-secondary">Curriculum
+                                    Tiers</span>
+                            </div>
+                            <h2 class="font-headline-xl text-headline-xl uppercase tracking-tight text-on-surface">
+                                Academy <span class="text-secondary">Programs</span>
+                            </h2>
+                            <p class="font-body-md text-body-md text-on-surface-variant">
+                                Tailored progression pathways from grassroots foundational play to elite professional
+                                scouting preparation.
+                            </p>
+                        </div>
+                        <a class="inline-flex items-center gap-2 font-label-md text-label-md uppercase tracking-wider text-secondary hover:text-secondary-fixed"
+                            href="#contact">
+                            <span>View Trial Schedule</span>
+                            <span class="material-symbols-outlined text-sm">calendar_month</span>
+                        </a>
+                    </div>
+                    <!-- 4 Responsive Program Cards Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+                        <!-- Card 1: Grassroots Development -->
+                        <div
+                            class="flex flex-col bg-surface-container rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                            <div class="h-48 relative overflow-hidden bg-surface-container-high">
+                                <img alt="Grassroots technical ball training"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnyYz3Vvn6STiiRNaDPryF-UTH3wnrDiUF6EUFew38tLWT3LspUaUq5kDzWovf1JI0L9tzvg5tuSrv7W18DCpyTlxJ5bTcvu233rK38ZJLjeQt5AyAjS7Jv_90Zo0916z0JGJfZVgLZb-BPtks_tnU1DsyeSrflIlLbbCI1ZsWUR0SQwrWndjnypit4lXcMjN1dLwGpsusgrKLSZf0DdU75od9AuCZBy3uQIn8pSRw70oUtU1quGg9" />
+                                <div
+                                    class="absolute top-3 left-3 px-2.5 py-1 rounded bg-surface-container-lowest/90 font-label-sm text-label-sm uppercase tracking-widest text-secondary">
+                                    Ages 5–9
+                                </div>
+                                <div
+                                    class="absolute bottom-2 right-3 font-label-sm text-label-sm uppercase text-on-surface/80 bg-surface-container-lowest/70 px-2 py-0.5 rounded">
+                                    Tier 1 • Discovery
+                                </div>
+                            </div>
+                            <div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+                                <div class="flex flex-col gap-space-xs">
+                                    <h3 class="font-headline-sm text-headline-sm uppercase text-on-surface">Grassroots
+                                        Development</h3>
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant">
+                                        Introduction to football fundamentals, motor coordination, cognitive agility,
+                                        and pure enjoyment of the beautiful game.
+                                    </p>
+                                    <div
+                                        class="mt-space-sm pt-space-xs flex flex-col gap-1 font-body-sm text-body-sm text-on-surface-variant">
+                                        <div class="flex items-center gap-2 text-xs">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                            <span>Ball mastery &amp; 1v1 fun games</span>
+                                        </div>
+                                        <div class="flex items-center gap-2 text-xs">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                            <span>Hand-eye &amp; foot agility tracks</span>
+                                        </div>
+                                        <div class="flex items-center gap-2 text-xs">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                            <span>2 sessions / week (60 min)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="w-full text-center py-space-sm bg-surface-container-highest hover:bg-secondary hover:text-on-secondary text-secondary font-label-md text-label-md uppercase tracking-wider rounded transition-colors"
+                                    href="#contact">
+                                    Apply For Program
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Card 2: Technical Development -->
+                        <div
+                            class="flex flex-col bg-surface-container rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                            <div class="h-48 relative overflow-hidden bg-surface-container-high">
+                                <img alt="Player dribbling through orange cones with high precision"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnyYz3Vvn6STiiRNaDPryF-UTH3wnrDiUF6EUFew38tLWT3LspUaUq5kDzWovf1JI0L9tzvg5tuSrv7W18DCpyTlxJ5bTcvu233rK38ZJLjeQt5AyAjS7Jv_90Zo0916z0JGJfZVgLZb-BPtks_tnU1DsyeSrflIlLbbCI1ZsWUR0SQwrWndjnypit4lXcMjN1dLwGpsusgrKLSZf0DdU75od9AuCZBy3uQIn8pSRw70oUtU1quGg9" />
+                                <div
+                                    class="absolute top-3 left-3 px-2.5 py-1 rounded bg-surface-container-lowest/90 font-label-sm text-label-sm uppercase tracking-widest text-secondary">
+                                    Ages 10–13
+                                </div>
+                                <div
+                                    class="absolute bottom-2 right-3 font-label-sm text-label-sm uppercase text-on-surface/80 bg-surface-container-lowest/70 px-2 py-0.5 rounded">
+                                    Tier 2 • Academy
+                                </div>
+                            </div>
+                            <div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+                                <div class="flex flex-col gap-space-xs">
+                                    <h3 class="font-headline-sm text-headline-sm uppercase text-on-surface">Technical
+                                        Development</h3>
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant">
+                                        Refined ball control, passing velocity, dribbling agility in tight spaces,
+                                        finishing precision, and 1v1 dominance.
+                                    </p>
+                                    <div
+                                        class="mt-space-sm pt-space-xs flex flex-col gap-1 font-body-sm text-body-sm text-on-surface-variant">
+                                        <div class="flex items-center gap-2 text-xs">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                            <span>Precision striking &amp; first touch</span>
+                                        </div>
+                                        <div class="flex items-center gap-2 text-xs">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                            <span>Small-sided possession rondo drills</span>
+                                        </div>
+                                        <div class="flex items-center gap-2 text-xs">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                            <span>3 sessions / week + weekend fixtures</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="w-full text-center py-space-sm bg-surface-container-highest hover:bg-secondary hover:text-on-secondary text-secondary font-label-md text-label-md uppercase tracking-wider rounded transition-colors"
+                                    href="#contact">
+                                    Apply For Program
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Card 3: Tactical Development -->
+                        <div
+                            class="flex flex-col bg-surface-container rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                            <div class="h-48 relative overflow-hidden bg-surface-container-high">
+                                <img alt="Tactics board session with coach and youth squad"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfg8X2XFDbQ-thCI5NhetAsnBTs5OxdJ5SddR4atLyoSwsTsUje3ZFgBSN7o8mc0L9Yiz2TKI6pymRewzTzxXbAzmo8lRkPAkwRUMRoUhdDGDaXma2c6pPUKYsOIA9OeOXo15KzHdMRUCGrfIkmSj9XAqB3qwS_09tIpMLf5KyMb6R0_gRLb6szStJT8WWR72CwfKZhrHDfMpoFEAPHZ6CUg0o-P-3GGe6HKEEaJ336kebSbwdY1KA" />
+                                <div
+                                    class="absolute top-3 left-3 px-2.5 py-1 rounded bg-surface-container-lowest/90 font-label-sm text-label-sm uppercase tracking-widest text-secondary">
+                                    Ages 14–16
+                                </div>
+                                <div
+                                    class="absolute bottom-2 right-3 font-label-sm text-label-sm uppercase text-on-surface/80 bg-surface-container-lowest/70 px-2 py-0.5 rounded">
+                                    Tier 3 • Junior Elite
+                                </div>
+                            </div>
+                            <div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+                                <div class="flex flex-col gap-space-xs">
+                                    <h3 class="font-headline-sm text-headline-sm uppercase text-on-surface">Tactical
+                                        Development</h3>
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant">
+                                        Positional awareness, high pressing structures, rapid transition play, and
+                                        sophisticated game intelligence under intense pressure.
+                                    </p>
+                                    <div
+                                        class="mt-space-sm pt-space-xs flex flex-col gap-1 font-body-sm text-body-sm text-on-surface-variant">
+                                        <div class="flex items-center gap-2 text-xs">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                            <span>Formational systems &amp; counter-pressing</span>
+                                        </div>
+                                        <div class="flex items-center gap-2 text-xs">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                            <span>Biomechanics &amp; sprint deceleration</span>
+                                        </div>
+                                        <div class="flex items-center gap-2 text-xs">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                            <span>4 sessions / week + league matches</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="w-full text-center py-space-sm bg-surface-container-highest hover:bg-secondary hover:text-on-secondary text-secondary font-label-md text-label-md uppercase tracking-wider rounded transition-colors"
+                                    href="#contact">
+                                    Apply For Program
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Card 4: Performance Training -->
+                        <div
+                            class="flex flex-col bg-surface-container rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                            <div class="h-48 relative overflow-hidden bg-surface-container-high">
+                                <img alt="Goalkeeper and squad performing athletic high performance saves and sprints"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvIXeeeRzcS0h_pwssfZGlm0Fs4j5O_oy2pYLGI3qkJBDfbSwJ_4p2oUIHELnScGHlP6Jr7TOKP986ehGl0G4_OVxrK2TFgtAf0GO9_tOhrTByTfPbgWXVztFJv4SLsmt8nMVeEpxxzwI5y4D4csFK-Rcb_Tx3SMs97KoHVKfebt7aQymkh_xvckDcTsnUBsqTqdgp_zUzETZ8McYmfm5G2XFn3U8DQ5G-Y_F5oduFgcCDmFQ9OmrM" />
+                                <div
+                                    class="absolute top-3 left-3 px-2.5 py-1 rounded bg-surface-container-lowest/90 font-label-sm text-label-sm uppercase tracking-widest text-secondary">
+                                    Ages 16–19
+                                </div>
+                                <div
+                                    class="absolute bottom-2 right-3 font-label-sm text-label-sm uppercase text-on-surface/80 bg-surface-container-lowest/70 px-2 py-0.5 rounded">
+                                    Tier 4 • Pro Showcase
+                                </div>
+                            </div>
+                            <div class="p-space-md flex flex-col flex-1 justify-between gap-space-md">
+                                <div class="flex flex-col gap-space-xs">
+                                    <h3 class="font-headline-sm text-headline-sm uppercase text-on-surface">Performance
+                                        Training</h3>
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant">
+                                        Advanced physical conditioning, position-specific mastery, video analysis, and
+                                        exposure to collegiate and professional scouts.
+                                    </p>
+                                    <div
+                                        class="mt-space-sm pt-space-xs flex flex-col gap-1 font-body-sm text-body-sm text-on-surface-variant">
+                                        <div class="flex items-center gap-2 text-xs">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                            <span>Individual GPS analytics &amp; stats profile</span>
+                                        </div>
+                                        <div class="flex items-center gap-2 text-xs">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                            <span>Pro club trial recommendation</span>
+                                        </div>
+                                        <div class="flex items-center gap-2 text-xs">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                                            <span>Daily training &amp; tournament showcase</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="w-full text-center py-space-sm bg-surface-container-highest hover:bg-secondary hover:text-on-secondary text-secondary font-label-md text-label-md uppercase tracking-wider rounded transition-colors"
+                                    href="#contact">
+                                    Apply For Program
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ========================================================================= -->
+            <!-- 4. WHY HORNSTARS ("Why Choose Hornstars?")                                 -->
+            <!-- ========================================================================= -->
+            <section class="w-full bg-surface-container-low py-space-xl lg:py-28">
+                <div class="max-w-[1320px] mx-auto px-margin-mobile lg:px-margin flex flex-col gap-space-xl">
+                    <div class="text-center max-w-2xl mx-auto flex flex-col items-center gap-space-xs">
+                        <span class="h-1 w-8 bg-secondary rounded"></span>
+                        <span class="font-label-md text-label-md uppercase tracking-widest text-secondary">The Academy
+                            Edge</span>
+                        <h2 class="font-headline-xl text-headline-xl uppercase tracking-tight text-on-surface">
+                            Why Choose <span class="text-secondary">Hornstars?</span>
+                        </h2>
+                        <p class="font-body-md text-body-md text-on-surface-variant">
+                            We combine UEFA-credentialed instruction with elite training grounds to give every
+                            footballer the ideal proving ground.
+                        </p>
+                    </div>
+                    <!-- 4 Feature Cards (NO emojis, pure SVG geometric icons) -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+                        <!-- Feature 1 -->
+                        <div
+                            class="p-space-lg bg-surface-container rounded-xl flex flex-col gap-space-md hover:bg-surface-container-high transition-all">
+                            <div
+                                class="w-14 h-14 rounded-lg bg-secondary/15 flex items-center justify-center text-secondary">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                                </svg>
+                            </div>
+                            <div class="flex flex-col gap-space-xs">
+                                <h3 class="font-headline-sm text-headline-sm uppercase text-on-surface">Professional
+                                    Coaching</h3>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                                    UEFA/FA licensed coaching staff with genuine professional playing and European
+                                    academy development pedigrees.
+                                </p>
+                            </div>
+                            <span
+                                class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mt-auto">UEFA
+                                'A' &amp; 'B' Staff</span>
+                        </div>
+                        <!-- Feature 2 -->
+                        <div
+                            class="p-space-lg bg-surface-container rounded-xl flex flex-col gap-space-md hover:bg-surface-container-high transition-all">
+                            <div
+                                class="w-14 h-14 rounded-lg bg-secondary/15 flex items-center justify-center text-secondary">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path
+                                        d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                                </svg>
+                            </div>
+                            <div class="flex flex-col gap-space-xs">
+                                <h3 class="font-headline-sm text-headline-sm uppercase text-on-surface">Player
+                                    Development</h3>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                                    Science-backed training methodology balancing technical ball skills, physical
+                                    biomechanics, and mental fortitude.
+                                </p>
+                            </div>
+                            <span
+                                class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mt-auto">Holistic
+                                Progression</span>
+                        </div>
+                        <!-- Feature 3 -->
+                        <div
+                            class="p-space-lg bg-surface-container rounded-xl flex flex-col gap-space-md hover:bg-surface-container-high transition-all">
+                            <div
+                                class="w-14 h-14 rounded-lg bg-secondary/15 flex items-center justify-center text-secondary">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path
+                                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                                </svg>
+                            </div>
+                            <div class="flex flex-col gap-space-xs">
+                                <h3 class="font-headline-sm text-headline-sm uppercase text-on-surface">Teamwork &amp;
+                                    Discipline</h3>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                                    Cultivating leaders through strict accountability, punctuality, teamwork ethics, and
+                                    mutual respect on and off the field.
+                                </p>
+                            </div>
+                            <span
+                                class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mt-auto">Character
+                                First</span>
+                        </div>
+                        <!-- Feature 4 -->
+                        <div
+                            class="p-space-lg bg-surface-container rounded-xl flex flex-col gap-space-md hover:bg-surface-container-high transition-all">
+                            <div
+                                class="w-14 h-14 rounded-lg bg-secondary/15 flex items-center justify-center text-secondary">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                                    <path
+                                        d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V4a2 2 0 10-2 2h2zm0 13a4 4 0 100-8 4 4 0 000 8z"
+                                        stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                                </svg>
+                            </div>
+                            <div class="flex flex-col gap-space-xs">
+                                <h3 class="font-headline-sm text-headline-sm uppercase text-on-surface">Competitive
+                                    Experience</h3>
+                                <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                                    Championship youth leagues, international academy friendlies, and direct exposure to
+                                    professional scouts and club trials.
+                                </p>
+                            </div>
+                            <span
+                                class="font-label-sm text-label-sm uppercase tracking-widest text-secondary mt-auto">Global
+                                Exposure</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ========================================================================= -->
+            <!-- 5. ANIMATED STATISTICS SECTION                                             -->
+            <!-- ========================================================================= -->
+            <section class="w-full bg-surface py-space-xl lg:py-20 relative overflow-hidden">
+                <div class="max-w-[1320px] mx-auto px-margin-mobile lg:px-margin">
+                    <!-- Stats Container Bar -->
+                    <div class="p-space-xl rounded-2xl bg-surface-container-lowest shadow-2xl">
+                        <div
+                            class="grid grid-cols-2 md:grid-cols-5 gap-space-lg text-center items-center divide-y md:divide-y-0 md:divide-x divide-surface-container-highest/60">
+                            <div class="flex flex-col items-center pt-space-sm md:pt-0">
+                                <span class="font-headline-xl text-headline-xl text-secondary"
+                                    data-counter="100">100+</span>
+                                <span
+                                    class="font-label-md text-label-md uppercase tracking-wider text-on-surface mt-1">Players
+                                    Developed</span>
+                                <span class="text-xs text-on-surface-variant mt-0.5">Across All Age Tiers</span>
+                            </div>
+                            <div class="flex flex-col items-center pt-space-sm md:pt-0">
+                                <span class="font-headline-xl text-headline-xl text-on-surface"
+                                    data-counter="10">10+</span>
+                                <span
+                                    class="font-label-md text-label-md uppercase tracking-wider text-on-surface mt-1">Qualified
+                                    Coaches</span>
+                                <span class="text-xs text-on-surface-variant mt-0.5">UEFA / FA Certified</span>
+                            </div>
+                            <div class="flex flex-col items-center pt-space-sm md:pt-0">
+                                <span class="font-headline-xl text-headline-xl text-secondary"
+                                    data-counter="20">20+</span>
+                                <span
+                                    class="font-label-md text-label-md uppercase tracking-wider text-on-surface mt-1">Weekly
+                                    Sessions</span>
+                                <span class="text-xs text-on-surface-variant mt-0.5">Training &amp; Recovery</span>
+                            </div>
+                            <div class="flex flex-col items-center pt-space-sm md:pt-0">
+                                <span class="font-headline-xl text-headline-xl text-on-surface"
+                                    data-counter="5">5+</span>
+                                <span
+                                    class="font-label-md text-label-md uppercase tracking-wider text-on-surface mt-1">Years
+                                    of Excellence</span>
+                                <span class="text-xs text-on-surface-variant mt-0.5">Established Pedigree</span>
+                            </div>
+                            <div class="col-span-2 md:col-span-1 flex flex-col items-center pt-space-sm md:pt-0">
+                                <span class="font-headline-xl text-headline-xl text-secondary"
+                                    data-counter="12">12</span>
+                                <span
+                                    class="font-label-md text-label-md uppercase tracking-wider text-on-surface mt-1">Pro
+                                    Club Signings</span>
+                                <span class="text-xs text-on-surface-variant mt-0.5">Academy Alumni</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ========================================================================= -->
+            <!-- 6. FOOTBALL GALLERY (With Interactive Lightbox)                           -->
+            <!-- ========================================================================= -->
+            <section class="w-full bg-surface-container-low py-space-xl lg:py-28" id="gallery">
+                <div class="max-w-[1320px] mx-auto px-margin-mobile lg:px-margin flex flex-col gap-space-xl">
+                    <!-- Section Header -->
+                    <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+                        <div class="flex flex-col gap-space-xs max-w-2xl">
+                            <div class="flex items-center gap-space-xs">
+                                <span class="h-1 w-8 bg-secondary rounded"></span>
+                                <span
+                                    class="font-label-md text-label-md uppercase tracking-widest text-secondary">Behind
+                                    The Crest</span>
+                            </div>
+                            <h2 class="font-headline-xl text-headline-xl uppercase tracking-tight text-on-surface">
+                                Life At The <span class="text-secondary">Academy</span>
+                            </h2>
+                            <p class="font-body-md text-body-md text-on-surface-variant">
+                                From technical dribbling and goalkeeping heroics to tactical masterclasses under the
+                                lights. Click any photo to view in high resolution.
+                            </p>
+                        </div>
+                        <div
+                            class="flex items-center gap-2 font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">
+                            <span class="material-symbols-outlined text-sm text-secondary">photo_camera</span>
+                            <span>Official Hornstars Archive</span>
+                        </div>
+                    </div>
+                    <!-- 8 Item Photo Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+                        <!-- Item 1 -->
+                        <div class="relative h-64 rounded-xl overflow-hidden cursor-pointer group bg-surface-container"
+                            onclick="openLightbox('https://lh3.googleusercontent.com/aida/AEtjO1X1Ky4N5oo9yFg8brWsZr434iZw8RX-7tAk-2MCp0NqmND4GAtXqTDrjzRH-YsSwi2wB4jyP2MTxV0zeEaU3eApPS95-GazWoKBEO_LeywHrLyLyhhdxy3dQCBznHDvJ2udyYiw983kd-xZEuOT0dRm8uYxTrgf5nwJKId0jhiAoL3HJrtFa0iHXXybED0uJgYfCI-dfKZfjC4NeI7TJSxPGNeWAcPLiIpPColONEwaWdLtRcLI_zVD25gsOl1hjvzYa2u422LEnw', 'Pitch sprint &amp; agility ladder drills at golden hour')">
+                            <img alt="Pitch sprint &amp; agility ladder drills at golden hour"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida/AEtjO1X1Ky4N5oo9yFg8brWsZr434iZw8RX-7tAk-2MCp0NqmND4GAtXqTDrjzRH-YsSwi2wB4jyP2MTxV0zeEaU3eApPS95-GazWoKBEO_LeywHrLyLyhhdxy3dQCBznHDvJ2udyYiw983kd-xZEuOT0dRm8uYxTrgf5nwJKId0jhiAoL3HJrtFa0iHXXybED0uJgYfCI-dfKZfjC4NeI7TJSxPGNeWAcPLiIpPColONEwaWdLtRcLI_zVD25gsOl1hjvzYa2u422LEnw" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-space-sm">
+                                <span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Speed
+                                    &amp; Agility</span>
+                                <span class="font-headline-sm text-headline-sm uppercase text-on-surface">Golden Hour
+                                    Sprints</span>
+                            </div>
+                        </div>
+                        <!-- Item 2 -->
+                        <div class="relative h-64 rounded-xl overflow-hidden cursor-pointer group bg-surface-container"
+                            onclick="openLightbox('https://lh3.googleusercontent.com/aida-public/AB6AXuDnyYz3Vvn6STiiRNaDPryF-UTH3wnrDiUF6EUFew38tLWT3LspUaUq5kDzWovf1JI0L9tzvg5tuSrv7W18DCpyTlxJ5bTcvu233rK38ZJLjeQt5AyAjS7Jv_90Zo0916z0JGJfZVgLZb-BPtks_tnU1DsyeSrflIlLbbCI1ZsWUR0SQwrWndjnypit4lXcMjN1dLwGpsusgrKLSZf0DdU75od9AuCZBy3uQIn8pSRw70oUtU1quGg9', 'Precision cone dribbling and technical ball mastery')">
+                            <img alt="Precision cone dribbling and technical ball mastery"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnyYz3Vvn6STiiRNaDPryF-UTH3wnrDiUF6EUFew38tLWT3LspUaUq5kDzWovf1JI0L9tzvg5tuSrv7W18DCpyTlxJ5bTcvu233rK38ZJLjeQt5AyAjS7Jv_90Zo0916z0JGJfZVgLZb-BPtks_tnU1DsyeSrflIlLbbCI1ZsWUR0SQwrWndjnypit4lXcMjN1dLwGpsusgrKLSZf0DdU75od9AuCZBy3uQIn8pSRw70oUtU1quGg9" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-space-sm">
+                                <span
+                                    class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Technical
+                                    Focus</span>
+                                <span class="font-headline-sm text-headline-sm uppercase text-on-surface">Cone Weaving
+                                    Drills</span>
+                            </div>
+                        </div>
+                        <!-- Item 3 -->
+                        <div class="relative h-64 rounded-xl overflow-hidden cursor-pointer group bg-surface-container"
+                            onclick="openLightbox('https://lh3.googleusercontent.com/aida-public/AB6AXuAfg8X2XFDbQ-thCI5NhetAsnBTs5OxdJ5SddR4atLyoSwsTsUje3ZFgBSN7o8mc0L9Yiz2TKI6pymRewzTzxXbAzmo8lRkPAkwRUMRoUhdDGDaXma2c6pPUKYsOIA9OeOXo15KzHdMRUCGrfIkmSj9XAqB3qwS_09tIpMLf5KyMb6R0_gRLb6szStJT8WWR72CwfKZhrHDfMpoFEAPHZ6CUg0o-P-3GGe6HKEEaJ336kebSbwdY1KA', 'Tactical whiteboard session with head academy coach')">
+                            <img alt="Tactical whiteboard session with head academy coach"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfg8X2XFDbQ-thCI5NhetAsnBTs5OxdJ5SddR4atLyoSwsTsUje3ZFgBSN7o8mc0L9Yiz2TKI6pymRewzTzxXbAzmo8lRkPAkwRUMRoUhdDGDaXma2c6pPUKYsOIA9OeOXo15KzHdMRUCGrfIkmSj9XAqB3qwS_09tIpMLf5KyMb6R0_gRLb6szStJT8WWR72CwfKZhrHDfMpoFEAPHZ6CUg0o-P-3GGe6HKEEaJ336kebSbwdY1KA" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-space-sm">
+                                <span
+                                    class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Football
+                                    IQ</span>
+                                <span class="font-headline-sm text-headline-sm uppercase text-on-surface">Tactical Chalk
+                                    Talk</span>
+                            </div>
+                        </div>
+                        <!-- Item 4 -->
+                        <div class="relative h-64 rounded-xl overflow-hidden cursor-pointer group bg-surface-container"
+                            onclick="openLightbox('https://lh3.googleusercontent.com/aida-public/AB6AXuDvIXeeeRzcS0h_pwssfZGlm0Fs4j5O_oy2pYLGI3qkJBDfbSwJ_4p2oUIHELnScGHlP6Jr7TOKP986ehGl0G4_OVxrK2TFgtAf0GO9_tOhrTByTfPbgWXVztFJv4SLsmt8nMVeEpxxzwI5y4D4csFK-Rcb_Tx3SMs97KoHVKfebt7aQymkh_xvckDcTsnUBsqTqdgp_zUzETZ8McYmfm5G2XFn3U8DQ5G-Y_F5oduFgcCDmFQ9OmrM', 'Goalkeeper mid-air diving save during specialist training')">
+                            <img alt="Goalkeeper mid-air diving save during specialist training"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvIXeeeRzcS0h_pwssfZGlm0Fs4j5O_oy2pYLGI3qkJBDfbSwJ_4p2oUIHELnScGHlP6Jr7TOKP986ehGl0G4_OVxrK2TFgtAf0GO9_tOhrTByTfPbgWXVztFJv4SLsmt8nMVeEpxxzwI5y4D4csFK-Rcb_Tx3SMs97KoHVKfebt7aQymkh_xvckDcTsnUBsqTqdgp_zUzETZ8McYmfm5G2XFn3U8DQ5G-Y_F5oduFgcCDmFQ9OmrM" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-space-sm">
+                                <span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Keeper
+                                    Unit</span>
+                                <span class="font-headline-sm text-headline-sm uppercase text-on-surface">Diving Top
+                                    Corner Save</span>
+                            </div>
+                        </div>
+                        <!-- Item 5 -->
+                        <div class="relative h-64 rounded-xl overflow-hidden cursor-pointer group bg-surface-container"
+                            onclick="openLightbox('https://lh3.googleusercontent.com/aida/AEtjO1X1Ky4N5oo9yFg8brWsZr434iZw8RX-7tAk-2MCp0NqmND4GAtXqTDrjzRH-YsSwi2wB4jyP2MTxV0zeEaU3eApPS95-GazWoKBEO_LeywHrLyLyhhdxy3dQCBznHDvJ2udyYiw983kd-xZEuOT0dRm8uYxTrgf5nwJKId0jhiAoL3HJrtFa0iHXXybED0uJgYfCI-dfKZfjC4NeI7TJSxPGNeWAcPLiIpPColONEwaWdLtRcLI_zVD25gsOl1hjvzYa2u422LEnw', 'Team conditioning and athletic coordination intervals')">
+                            <img alt="Team conditioning and athletic coordination intervals"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida/AEtjO1X1Ky4N5oo9yFg8brWsZr434iZw8RX-7tAk-2MCp0NqmND4GAtXqTDrjzRH-YsSwi2wB4jyP2MTxV0zeEaU3eApPS95-GazWoKBEO_LeywHrLyLyhhdxy3dQCBznHDvJ2udyYiw983kd-xZEuOT0dRm8uYxTrgf5nwJKId0jhiAoL3HJrtFa0iHXXybED0uJgYfCI-dfKZfjC4NeI7TJSxPGNeWAcPLiIpPColONEwaWdLtRcLI_zVD25gsOl1hjvzYa2u422LEnw" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-space-sm">
+                                <span
+                                    class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Conditioning</span>
+                                <span class="font-headline-sm text-headline-sm uppercase text-on-surface">Endurance
+                                    Intervals</span>
+                            </div>
+                        </div>
+                        <!-- Item 6 -->
+                        <div class="relative h-64 rounded-xl overflow-hidden cursor-pointer group bg-surface-container"
+                            onclick="openLightbox('https://lh3.googleusercontent.com/aida-public/AB6AXuDnyYz3Vvn6STiiRNaDPryF-UTH3wnrDiUF6EUFew38tLWT3LspUaUq5kDzWovf1JI0L9tzvg5tuSrv7W18DCpyTlxJ5bTcvu233rK38ZJLjeQt5AyAjS7Jv_90Zo0916z0JGJfZVgLZb-BPtks_tnU1DsyeSrflIlLbbCI1ZsWUR0SQwrWndjnypit4lXcMjN1dLwGpsusgrKLSZf0DdU75od9AuCZBy3uQIn8pSRw70oUtU1quGg9', 'High intensity 1v1 ball handling simulation')">
+                            <img alt="High intensity 1v1 ball handling simulation"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnyYz3Vvn6STiiRNaDPryF-UTH3wnrDiUF6EUFew38tLWT3LspUaUq5kDzWovf1JI0L9tzvg5tuSrv7W18DCpyTlxJ5bTcvu233rK38ZJLjeQt5AyAjS7Jv_90Zo0916z0JGJfZVgLZb-BPtks_tnU1DsyeSrflIlLbbCI1ZsWUR0SQwrWndjnypit4lXcMjN1dLwGpsusgrKLSZf0DdU75od9AuCZBy3uQIn8pSRw70oUtU1quGg9" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-space-sm">
+                                <span
+                                    class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Control
+                                    &amp; Pacing</span>
+                                <span class="font-headline-sm text-headline-sm uppercase text-on-surface">Tight Space
+                                    Dribbling</span>
+                            </div>
+                        </div>
+                        <!-- Item 7 -->
+                        <div class="relative h-64 rounded-xl overflow-hidden cursor-pointer group bg-surface-container"
+                            onclick="openLightbox('https://lh3.googleusercontent.com/aida-public/AB6AXuAfg8X2XFDbQ-thCI5NhetAsnBTs5OxdJ5SddR4atLyoSwsTsUje3ZFgBSN7o8mc0L9Yiz2TKI6pymRewzTzxXbAzmo8lRkPAkwRUMRoUhdDGDaXma2c6pPUKYsOIA9OeOXo15KzHdMRUCGrfIkmSj9XAqB3qwS_09tIpMLf5KyMb6R0_gRLb6szStJT8WWR72CwfKZhrHDfMpoFEAPHZ6CUg0o-P-3GGe6HKEEaJ336kebSbwdY1KA', 'Tactical squad review during interval')">
+                            <img alt="Tactical squad review during interval"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfg8X2XFDbQ-thCI5NhetAsnBTs5OxdJ5SddR4atLyoSwsTsUje3ZFgBSN7o8mc0L9Yiz2TKI6pymRewzTzxXbAzmo8lRkPAkwRUMRoUhdDGDaXma2c6pPUKYsOIA9OeOXo15KzHdMRUCGrfIkmSj9XAqB3qwS_09tIpMLf5KyMb6R0_gRLb6szStJT8WWR72CwfKZhrHDfMpoFEAPHZ6CUg0o-P-3GGe6HKEEaJ336kebSbwdY1KA" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-space-sm">
+                                <span
+                                    class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Strategy</span>
+                                <span class="font-headline-sm text-headline-sm uppercase text-on-surface">Match Review
+                                    Hub</span>
+                            </div>
+                        </div>
+                        <!-- Item 8 -->
+                        <div class="relative h-64 rounded-xl overflow-hidden cursor-pointer group bg-surface-container"
+                            onclick="openLightbox('https://lh3.googleusercontent.com/aida-public/AB6AXuDvIXeeeRzcS0h_pwssfZGlm0Fs4j5O_oy2pYLGI3qkJBDfbSwJ_4p2oUIHELnScGHlP6Jr7TOKP986ehGl0G4_OVxrK2TFgtAf0GO9_tOhrTByTfPbgWXVztFJv4SLsmt8nMVeEpxxzwI5y4D4csFK-Rcb_Tx3SMs97KoHVKfebt7aQymkh_xvckDcTsnUBsqTqdgp_zUzETZ8McYmfm5G2XFn3U8DQ5G-Y_F5oduFgcCDmFQ9OmrM', 'Specialist goalkeeper reflexes and handling session')">
+                            <img alt="Specialist goalkeeper reflexes and handling session"
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvIXeeeRzcS0h_pwssfZGlm0Fs4j5O_oy2pYLGI3qkJBDfbSwJ_4p2oUIHELnScGHlP6Jr7TOKP986ehGl0G4_OVxrK2TFgtAf0GO9_tOhrTByTfPbgWXVztFJv4SLsmt8nMVeEpxxzwI5y4D4csFK-Rcb_Tx3SMs97KoHVKfebt7aQymkh_xvckDcTsnUBsqTqdgp_zUzETZ8McYmfm5G2XFn3U8DQ5G-Y_F5oduFgcCDmFQ9OmrM" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/90 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-space-sm">
+                                <span
+                                    class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Goalkeeping</span>
+                                <span class="font-headline-sm text-headline-sm uppercase text-on-surface">Reflex &amp;
+                                    Dive Drill</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Interactive Lightbox Modal -->
+            <div class="fixed inset-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md hidden flex-col items-center justify-center p-4"
+                id="gallery-lightbox">
+                <div class="relative max-w-5xl w-full flex flex-col items-center">
+                    <button aria-label="Close image viewer"
+                        class="absolute -top-12 right-0 p-2 text-on-surface hover:text-secondary transition-colors"
+                        onclick="closeLightbox()">
+                        <span class="material-symbols-outlined text-3xl">close</span>
+                    </button>
+                    <div
+                        class="w-full max-h-[80vh] flex items-center justify-center overflow-hidden rounded-xl bg-surface-container">
+                        <img alt="Hornstars preview" class="w-auto h-auto max-h-[75vh] object-contain rounded-lg"
+                            id="lightbox-img" src="" />
+                    </div>
+                    <p class="mt-4 font-body-md text-body-md text-secondary tracking-wide text-center"
+                        id="lightbox-caption"></p>
+                </div>
+            </div>
+            <!-- ========================================================================= -->
+            <!-- 7. FEATURED VIDEO SECTION ("Experience Hornstars")                        -->
+            <!-- ========================================================================= -->
+            <section class="w-full bg-surface py-space-xl lg:py-28">
+                <div
+                    class="max-w-[1320px] mx-auto px-margin-mobile lg:px-margin flex flex-col items-center gap-space-lg">
+                    <div class="text-center max-w-2xl mx-auto flex flex-col items-center gap-space-xs">
+                        <span class="h-1 w-8 bg-secondary rounded"></span>
+                        <span class="font-label-md text-label-md uppercase tracking-widest text-secondary">Matchday
+                            &amp; Training Action</span>
+                        <h2 class="font-headline-xl text-headline-xl uppercase tracking-tight text-on-surface">
+                            Experience <span class="text-secondary">Hornstars</span>
+                        </h2>
+                        <p class="font-body-md text-body-md text-on-surface-variant">
+                            Watch our players in action — daily dedication, tactical mastery, and match day intensity
+                            under the floodlights.
+                        </p>
+                    </div>
+                    <!-- High-End Responsive Video Container -->
+                    <div
+                        class="w-full max-w-5xl relative aspect-video rounded-2xl overflow-hidden bg-surface-container-lowest shadow-2xl group">
+                        <!-- Video Poster Frame with Real Footage Asset -->
+                        <div class="absolute inset-0 bg-cover bg-center cursor-pointer flex items-center justify-center"
+                            id="video-poster" onclick="playAcademyVideo()"
+                            style="background-image: url('https://lh3.googleusercontent.com/aida/AEtjO1X1Ky4N5oo9yFg8brWsZr434iZw8RX-7tAk-2MCp0NqmND4GAtXqTDrjzRH-YsSwi2wB4jyP2MTxV0zeEaU3eApPS95-GazWoKBEO_LeywHrLyLyhhdxy3dQCBznHDvJ2udyYiw983kd-xZEuOT0dRm8uYxTrgf5nwJKId0jhiAoL3HJrtFa0iHXXybED0uJgYfCI-dfKZfjC4NeI7TJSxPGNeWAcPLiIpPColONEwaWdLtRcLI_zVD25gsOl1hjvzYa2u422LEnw');">
+                            <div class="absolute inset-0 bg-surface/60 group-hover:bg-surface/40 transition-colors">
+                            </div>
+                            <!-- Pulsing Custom Gold Play Button -->
+                            <div class="relative z-10 flex flex-col items-center gap-3">
+                                <div
+                                    class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-secondary flex items-center justify-center text-on-secondary shadow-[0_0_30px_rgba(235,193,105,0.6)] transform group-hover:scale-110 transition-transform">
+                                    <svg class="w-10 h-10 ml-1.5" fill="currentColor" viewbox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"></path>
+                                    </svg>
+                                </div>
+                                <span
+                                    class="font-label-md text-label-md uppercase tracking-widest text-on-surface bg-surface-container-lowest/80 px-4 py-1 rounded-full">
+                                    Play Academy Reel (2024)
+                                </span>
+                            </div>
+                            <!-- Video Metadata Badges -->
+                            <div class="absolute bottom-4 left-4 sm:left-6 flex items-center gap-3">
+                                <span
+                                    class="px-2.5 py-1 rounded bg-surface-container-lowest/90 text-secondary font-label-sm text-label-sm uppercase tracking-wider">4K
+                                    UHD</span>
+                                <span class="text-xs text-on-surface">Hornstars Training Complex • Arena Way</span>
+                            </div>
+                        </div>
+                        <!-- Embedded Video Player -->
+                        <video class="w-full h-full object-cover hidden" controls="" id="academy-video"
+                            preload="metadata">
+                            <source
+                                src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+                                type="video/mp4" />
+                            Your browser does not support HTML5 video streaming.
+                        </video>
+                    </div>
+                </div>
+            </section>
+            <!-- ========================================================================= -->
+            <!-- 8. PLAYER DEVELOPMENT SECTION (4-Pillar Methodology)                      -->
+            <!-- ========================================================================= -->
+            <section class="w-full bg-surface-container-low py-space-xl lg:py-28" id="philosophy">
+                <div class="max-w-[1320px] mx-auto px-margin-mobile lg:px-margin flex flex-col gap-space-xl">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+                        <!-- Left Visual Side -->
+                        <div class="lg:col-span-5 relative order-2 lg:order-1">
+                            <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-surface-container">
+                                <img alt="Goalkeeper and squad performing athletic high performance saves and sprints"
+                                    class="w-full h-[520px] object-cover object-center"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvIXeeeRzcS0h_pwssfZGlm0Fs4j5O_oy2pYLGI3qkJBDfbSwJ_4p2oUIHELnScGHlP6Jr7TOKP986ehGl0G4_OVxrK2TFgtAf0GO9_tOhrTByTfPbgWXVztFJv4SLsmt8nMVeEpxxzwI5y4D4csFK-Rcb_Tx3SMs97KoHVKfebt7aQymkh_xvckDcTsnUBsqTqdgp_zUzETZ8McYmfm5G2XFn3U8DQ5G-Y_F5oduFgcCDmFQ9OmrM" />
+                                <div
+                                    class="absolute bottom-0 inset-x-0 p-space-md bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest/80 to-transparent">
+                                    <span
+                                        class="font-label-sm text-label-sm uppercase tracking-widest text-secondary block">The
+                                        4-Pillar System</span>
+                                    <p class="font-body-sm text-body-sm text-on-surface mt-1">Every training cycle
+                                        balances Technical, Tactical, Physical, and Mental mastery.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Right 4 Pillars Details -->
+                        <div class="lg:col-span-7 flex flex-col gap-space-md order-1 lg:order-2">
+                            <div class="flex items-center gap-space-xs">
+                                <span class="h-1 w-8 bg-secondary rounded"></span>
+                                <span class="font-label-md text-label-md uppercase tracking-widest text-secondary">Our
+                                    Coaching Methodology</span>
+                            </div>
+                            <h2 class="font-headline-xl text-headline-xl uppercase tracking-tight text-on-surface">
+                                Developing Players. <span class="text-secondary">Building Character.</span>
+                            </h2>
+                            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                                Our progressive youth system has been engineered to translate pitch skills into real
+                                athletic pedigree and unshakeable inner resilience.
+                            </p>
+                            <!-- 4 Pillars Grid -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md pt-space-xs">
+                                <!-- Pillar 1: Technical -->
+                                <div class="p-space-md rounded-xl bg-surface-container flex flex-col gap-space-xs">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-headline-sm text-headline-sm uppercase text-on-surface">1.
+                                            Technical</span>
+                                        <span
+                                            class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Mastery</span>
+                                    </div>
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant">
+                                        Individual ball wizardry: 1v1 dominance, ambidextrous passing accuracy, first
+                                        touch directional cushioning, and composure inside crowded penalty boxes.
+                                    </p>
+                                </div>
+                                <!-- Pillar 2: Tactical -->
+                                <div class="p-space-md rounded-xl bg-surface-container flex flex-col gap-space-xs">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-headline-sm text-headline-sm uppercase text-on-surface">2.
+                                            Tactical</span>
+                                        <span
+                                            class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Game
+                                            IQ</span>
+                                    </div>
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant">
+                                        Collective spatial awareness: counter-pressing triggers, width expansion,
+                                        line-breaking passing lanes, and proactive defensive transitions.
+                                    </p>
+                                </div>
+                                <!-- Pillar 3: Physical -->
+                                <div class="p-space-md rounded-xl bg-surface-container flex flex-col gap-space-xs">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-headline-sm text-headline-sm uppercase text-on-surface">3.
+                                            Physical</span>
+                                        <span
+                                            class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Athleticism</span>
+                                    </div>
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant">
+                                        Athletic foundations: deceleration mechanics, core torque, top-end sprint speed,
+                                        multi-directional agility, and comprehensive injury prevention.
+                                    </p>
+                                </div>
+                                <!-- Pillar 4: Mental -->
+                                <div class="p-space-md rounded-xl bg-surface-container flex flex-col gap-space-xs">
+                                    <div class="flex items-center justify-between">
+                                        <span class="font-headline-sm text-headline-sm uppercase text-on-surface">4.
+                                            Mental</span>
+                                        <span
+                                            class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Resilience</span>
+                                    </div>
+                                    <p class="font-body-sm text-body-sm text-on-surface-variant">
+                                        Psychological fortitude: growth mindset under adversity, vocal leadership,
+                                        emotional poise during high-stakes shootouts, and mutual respect.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ========================================================================= -->
+            <!-- 9. CALL TO ACTION (CTA)                                                   -->
+            <!-- ========================================================================= -->
+            <section class="w-full bg-surface py-space-xl lg:py-20 relative overflow-hidden">
+                <div class="max-w-[1320px] mx-auto px-margin-mobile lg:px-margin">
+                    <div
+                        class="relative rounded-2xl overflow-hidden bg-primary-container p-space-xl lg:p-20 text-center flex flex-col items-center gap-space-md shadow-2xl">
+                        <!-- Ambient Background Glow & Emblem Silhouette -->
+                        <div
+                            class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-secondary/10 blur-3xl pointer-events-none">
+                        </div>
+                        <div
+                            class="absolute -left-20 -bottom-20 w-80 h-80 rounded-full bg-secondary/10 blur-3xl pointer-events-none">
+                        </div>
+                        <span class="font-label-md text-label-md uppercase tracking-widest text-secondary">
+                            Academy Admissions • Trial Season
+                        </span>
+                        <h2
+                            class="font-headline-xl text-headline-xl uppercase tracking-tight text-on-surface max-w-2xl">
+                            Your Journey <span class="text-secondary">Starts Here</span>
+                        </h2>
+                        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+                            Join Hornstars Football Academy and take the next step in your football journey. Trial days
+                            are currently open for boys and girls aged 6 to 19 across all squad divisions.
+                        </p>
+                        <div class="flex flex-wrap items-center justify-center gap-space-md pt-space-sm">
+                            <a class="px-space-xl py-space-md bg-secondary hover:bg-secondary-fixed text-on-secondary font-label-lg text-label-lg uppercase tracking-wider rounded transition-all shadow-lg hover:scale-105"
+                                href="#contact">
+                                Join the Academy
+                            </a>
+                            <a class="px-space-xl py-space-md bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg uppercase tracking-wider rounded transition-all"
+                                href="#contact">
+                                Contact Admissions
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ========================================================================= -->
+            <!-- 10. CONTACT & ENQUIRY SECTION                                             -->
+            <!-- ========================================================================= -->
+            <section class="w-full bg-surface-container-low py-space-xl lg:py-28" id="contact">
+                <div class="max-w-[1320px] mx-auto px-margin-mobile lg:px-margin flex flex-col gap-space-xl">
+                    <div class="flex flex-col gap-space-xs max-w-2xl">
+                        <div class="flex items-center gap-space-xs">
+                            <span class="h-1 w-8 bg-secondary rounded"></span>
+                            <span
+                                class="font-label-md text-label-md uppercase tracking-widest text-secondary">Admissions
+                                &amp; Trials</span>
+                        </div>
+                        <h2 class="font-headline-xl text-headline-xl uppercase tracking-tight text-on-surface">
+                            Get In Touch &amp; <span class="text-secondary">Schedule a Trial</span>
+                        </h2>
+                        <p class="font-body-md text-body-md text-on-surface-variant">
+                            Complete the registration form to schedule a trial assessment or speak directly with an
+                            academy coaching director.
+                        </p>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+                        <!-- Left: Academy Logistics & Schedule -->
+                        <div class="lg:col-span-5 flex flex-col gap-space-lg">
+                            <!-- Contact Detail Cards -->
+                            <div class="flex flex-col gap-space-sm">
+                                <!-- Phone & WhatsApp -->
+                                <div class="p-space-md rounded-xl bg-surface-container flex items-start gap-space-md">
+                                    <div
+                                        class="w-10 h-10 rounded bg-secondary/15 flex items-center justify-center text-secondary shrink-0">
+                                        <span class="material-symbols-outlined text-xl">phone_in_talk</span>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <span
+                                            class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Direct
+                                            Telephone</span>
+                                        <span class="font-headline-sm text-headline-sm text-on-surface mt-0.5">+44 20
+                                            7946 0912 / +1 555 019 2834</span>
+                                        <a class="text-xs text-secondary hover:underline mt-1 inline-flex items-center gap-1"
+                                            href="https://wa.me/442079460912" rel="noopener" target="_blank">
+                                            <span>Chat via WhatsApp Official</span>
+                                            <span class="material-symbols-outlined text-xs">open_in_new</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Email -->
+                                <div class="p-space-md rounded-xl bg-surface-container flex items-start gap-space-md">
+                                    <div
+                                        class="w-10 h-10 rounded bg-secondary/15 flex items-center justify-center text-secondary shrink-0">
+                                        <span class="material-symbols-outlined text-xl">mail</span>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <span
+                                            class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Official
+                                            Admissions Email</span>
+                                        <span
+                                            class="font-headline-sm text-headline-sm text-on-surface mt-0.5">trials@hornstarsacademy.com</span>
+                                        <span class="text-xs text-on-surface-variant mt-1">24-hour response SLA on
+                                            player trial requests</span>
+                                    </div>
+                                </div>
+                                <!-- Complex Location -->
+                                <div class="p-space-md rounded-xl bg-surface-container flex items-start gap-space-md">
+                                    <div
+                                        class="w-10 h-10 rounded bg-secondary/15 flex items-center justify-center text-secondary shrink-0">
+                                        <span class="material-symbols-outlined text-xl">location_on</span>
+                                    </div>
+                                    <div class="flex flex-col">
+                                        <span
+                                            class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Pitch
+                                            &amp; Training Complex</span>
+                                        <span class="font-headline-sm text-headline-sm text-on-surface mt-0.5">Hornstars
+                                            Training Complex</span>
+                                        <span class="text-xs text-on-surface-variant mt-0.5">Arena Way Pitch 1 &amp;
+                                            Covered Indoor Dome</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Schedule Table Module -->
+                            <div class="p-space-md rounded-xl bg-surface-container flex flex-col gap-space-sm">
+                                <div
+                                    class="flex items-center justify-between pb-space-xs border-b border-surface-container-highest">
+                                    <span
+                                        class="font-label-md text-label-md uppercase tracking-wider text-on-surface">Weekly
+                                        Training Schedule</span>
+                                    <span class="font-label-sm text-label-sm uppercase text-secondary">All Tiers</span>
+                                </div>
+                                <div class="flex justify-between text-body-sm text-body-sm py-1">
+                                    <span class="text-on-surface-variant">Grassroots (U6–U9)</span>
+                                    <span class="text-on-surface font-medium">Tue &amp; Thu 16:30 – 17:45</span>
+                                </div>
+                                <div
+                                    class="flex justify-between text-body-sm text-body-sm py-1 border-t border-surface-container-highest/50">
+                                    <span class="text-on-surface-variant">Technical Squad (U10–U13)</span>
+                                    <span class="text-on-surface font-medium">Mon, Wed &amp; Fri 17:00 – 18:30</span>
+                                </div>
+                                <div
+                                    class="flex justify-between text-body-sm text-body-sm py-1 border-t border-surface-container-highest/50">
+                                    <span class="text-on-surface-variant">Tactical Elite (U14–U16)</span>
+                                    <span class="text-on-surface font-medium">Mon – Thu 18:00 – 19:45</span>
+                                </div>
+                                <div
+                                    class="flex justify-between text-body-sm text-body-sm py-1 border-t border-surface-container-highest/50">
+                                    <span class="text-on-surface-variant">Performance Squad (U17–U19)</span>
+                                    <span class="text-on-surface font-medium">Mon – Fri 18:30 – 20:30</span>
+                                </div>
+                                <div
+                                    class="flex justify-between text-body-sm text-body-sm py-1 border-t border-surface-container-highest/50">
+                                    <span class="text-on-surface-variant">Weekend Competitive Fixtures</span>
+                                    <span class="text-secondary font-medium">Saturday &amp; Sunday Matchdays</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Right: Official Registration & Trial Booking Form -->
+                        <div
+                            class="lg:col-span-7 bg-surface-container p-space-lg lg:p-space-xl rounded-2xl shadow-xl flex flex-col gap-space-md">
+                            <div class="flex flex-col">
+                                <span class="font-headline-sm text-headline-sm uppercase text-on-surface">Book Player
+                                    Trial Assessment</span>
+                                <span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Please provide
+                                    player and guardian credentials below.</span>
+                            </div>
+                            <!-- Interactive Form with Instant Feedback -->
+                            <form class="flex flex-col gap-space-md mt-space-xs" id="trial-registration-form"
+                                onsubmit="handleFormSubmission(event)">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+                                    <div class="flex flex-col gap-1">
+                                        <label
+                                            class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant"
+                                            for="player-name">Player Full Name *</label>
+                                        <input
+                                            class="px-4 py-2.5 rounded bg-surface-container-lowest text-on-surface focus:outline-none focus:ring-1 focus:ring-secondary font-body-sm text-body-sm placeholder:text-outline/60"
+                                            id="player-name" placeholder="e.g. Liam Sterling" required="" type="text" />
+                                    </div>
+                                    <div class="flex flex-col gap-1">
+                                        <label
+                                            class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant"
+                                            for="parent-name">Parent / Guardian Name *</label>
+                                        <input
+                                            class="px-4 py-2.5 rounded bg-surface-container-lowest text-on-surface focus:outline-none focus:ring-1 focus:ring-secondary font-body-sm text-body-sm placeholder:text-outline/60"
+                                            id="parent-name" placeholder="e.g. Sarah Sterling" required=""
+                                            type="text" />
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+                                    <div class="flex flex-col gap-1">
+                                        <label
+                                            class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant"
+                                            for="player-dob">Player Age / Date of Birth *</label>
+                                        <input
+                                            class="px-4 py-2.5 rounded bg-surface-container-lowest text-on-surface focus:outline-none focus:ring-1 focus:ring-secondary font-body-sm text-body-sm placeholder:text-outline/60"
+                                            id="player-dob" placeholder="e.g. 14 Years (12/04/2010)" required=""
+                                            type="text" />
+                                    </div>
+                                    <div class="flex flex-col gap-1">
+                                        <label
+                                            class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant"
+                                            for="preferred-program">Selected Program / Category *</label>
+                                        <select
+                                            class="px-4 py-2.5 rounded bg-surface-container-lowest text-on-surface focus:outline-none focus:ring-1 focus:ring-secondary font-body-sm text-body-sm"
+                                            id="preferred-program" required="">
+                                            <option value="grassroots">Grassroots Development (Ages 5–9)</option>
+                                            <option selected="" value="technical">Technical Development (Ages 10–13)
+                                            </option>
+                                            <option value="tactical">Tactical Development (Ages 14–16)</option>
+                                            <option value="performance">Performance &amp; Pro Showcase (Ages 16–19)
+                                            </option>
+                                            <option value="goalkeeper">Specialist Goalkeeper Academy</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+                                    <div class="flex flex-col gap-1">
+                                        <label
+                                            class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant"
+                                            for="contact-phone">Contact Phone Number *</label>
+                                        <input
+                                            class="px-4 py-2.5 rounded bg-surface-container-lowest text-on-surface focus:outline-none focus:ring-1 focus:ring-secondary font-body-sm text-body-sm placeholder:text-outline/60"
+                                            id="contact-phone" placeholder="+44 7123 456789" required="" type="tel" />
+                                    </div>
+                                    <div class="flex flex-col gap-1">
+                                        <label
+                                            class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant"
+                                            for="contact-email">Contact Email Address *</label>
+                                        <input
+                                            class="px-4 py-2.5 rounded bg-surface-container-lowest text-on-surface focus:outline-none focus:ring-1 focus:ring-secondary font-body-sm text-body-sm placeholder:text-outline/60"
+                                            id="contact-email" placeholder="guardian@email.com" required=""
+                                            type="email" />
+                                    </div>
+                                </div>
+                                <div class="flex flex-col gap-1">
+                                    <label
+                                        class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant"
+                                        for="player-experience">Playing Experience &amp; Current Position</label>
+                                    <textarea
+                                        class="px-4 py-2.5 rounded bg-surface-container-lowest text-on-surface focus:outline-none focus:ring-1 focus:ring-secondary font-body-sm text-body-sm placeholder:text-outline/60 resize-none"
+                                        id="player-experience"
+                                        placeholder="Specify playing position (e.g. Attacking Midfielder / Center Back), previous clubs, and trial goals..."
+                                        rows="3"></textarea>
+                                </div>
+                                <div class="pt-space-xs flex flex-col gap-space-sm">
+                                    <button
+                                        class="w-full py-space-md bg-secondary hover:bg-secondary-fixed text-on-secondary font-label-lg text-label-lg uppercase tracking-wider rounded transition-all shadow-lg flex items-center justify-center gap-2"
+                                        id="submit-btn" type="submit">
+                                        <span>Submit Trial Enquiry</span>
+                                        <span class="material-symbols-outlined text-lg">send</span>
+                                    </button>
+                                    <div class="hidden p-space-md rounded bg-secondary/20 text-secondary text-center font-body-sm text-body-sm"
+                                        id="form-success-banner">
+                                        Enquiry successfully dispatched. Our head youth coordinator will contact you
+                                        within 24 hours to schedule trial pitch assessment.
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- Vanilla Interactive Micro-Scripts (Lightbox & Video Player & Form Handlers) -->
+       
+       <script src="main.js"></script>
+    </main>
+    <footer
+        class="w-full bg-surface-container-low border-t border-secondary/30 pt-space-xl pb-space-lg text-on-surface-variant">
+        <div
+            class="max-w-[1320px] mx-auto px-margin-mobile lg:px-margin grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg pb-space-xl border-b border-outline-variant/20">
+            <div class="flex flex-col gap-space-md">
+                <div class="flex items-center gap-space-sm"><img alt="Hornstars Football Academy Crest"
+                        class="h-12 w-auto object-contain"
+                        src="https://lh3.googleusercontent.com/aida/AEtjO1X1Ky4N5oo9yFg8brWsZr434iZw8RX-7tAk-2MCp0NqmND4GAtXqTDrjzRH-YsSwi2wB4jyP2MTxV0zeEaU3eApPS95-GazWoKBEO_LeywHrLyLyhhdxy3dQCBznHDvJ2udyYiw983kd-xZEuOT0dRm8uYxTrgf5nwJKId0jhiAoL3HJrtFa0iHXXybED0uJgYfCI-dfKZfjC4NeI7TJSxPGNeWAcPLiIpPColONEwaWdLtRcLI_zVD25gsOl1hjvzYa2u422LEnw" />
+                    <div class="flex flex-col"><span
+                            class="font-headline-sm text-headline-sm uppercase tracking-wider text-on-surface">Hornstars</span><span
+                            class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Football
+                            Academy</span></div>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">Developing football talent and
+                    building character for the next generation.</p>
+                <div class="flex items-center gap-space-sm pt-space-xs"><a aria-label="Official Platform"
+                        class="w-9 h-9 flex items-center justify-center rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface-variant transition-all"
+                        href="#"><span class="material-symbols-outlined text-lg">public</span></a><a
+                        aria-label="Match Broadcasts"
+                        class="w-9 h-9 flex items-center justify-center rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface-variant transition-all"
+                        href="#"><span class="material-symbols-outlined text-lg">sports_soccer</span></a><a
+                        aria-label="Academy Channel"
+                        class="w-9 h-9 flex items-center justify-center rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface-variant transition-all"
+                        href="#"><span class="material-symbols-outlined text-lg">smart_display</span></a></div>
+            </div>
+            <div class="flex flex-col gap-space-sm"><span
+                    class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface">Navigation</span><a
+                    class="font-body-sm text-body-sm hover:text-secondary transition-colors" href="#hero">Home
+                    Overview</a><a class="font-body-sm text-body-sm hover:text-secondary transition-colors"
+                    href="#about">About the Academy</a><a
+                    class="font-body-sm text-body-sm hover:text-secondary transition-colors"
+                    href="#philosophy">Technical Philosophy</a><a
+                    class="font-body-sm text-body-sm hover:text-secondary transition-colors" href="#programs">Elite
+                    Programs &amp; Age Tiers</a><a
+                    class="font-body-sm text-body-sm hover:text-secondary transition-colors" href="#gallery">Campus
+                    &amp; Match Gallery</a><a class="font-body-sm text-body-sm hover:text-secondary transition-colors"
+                    href="#contact">Admissions &amp; Trials</a></div>
+            <div class="flex flex-col gap-space-sm"><span
+                    class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface">Training
+                    Schedule</span>
+                <div class="flex flex-col gap-space-xs font-body-sm text-body-sm">
+                    <div class="flex justify-between pb-space-xs border-b border-surface-container-highest"><span
+                            class="text-on-surface">Youth Squads (U12-U15)</span><span class="text-secondary">Mon - Thu
+                            16:30</span></div>
+                    <div class="flex justify-between pb-space-xs border-b border-surface-container-highest"><span
+                            class="text-on-surface">Elite Development (U16-U19)</span><span class="text-secondary">Mon -
+                            Fri 18:00</span></div>
+                    <div class="flex justify-between pb-space-xs border-b border-surface-container-highest"><span
+                            class="text-on-surface">Matchday Fixtures</span><span class="text-secondary">Saturday
+                            AM/PM</span></div>
+                    <div class="flex justify-between"><span class="text-on-surface">Conditioning Recovery</span><span
+                            class="text-secondary">Sunday 09:00</span></div>
+                </div>
+            </div>
+            <div class="flex flex-col gap-space-sm"><span
+                    class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface">Accreditations</span>
+                <div class="flex flex-col gap-space-sm font-body-sm text-body-sm">
+                    <div
+                        class="p-space-sm rounded-lg bg-surface-container border border-outline-variant/30 flex items-center gap-space-sm">
+                        <span class="material-symbols-outlined text-secondary">verified</span>
+                        <div>
+                            <div class="text-on-surface font-medium">National Association Certified</div>
+                            <div class="text-xs text-on-surface-variant">Tier 1 Elite Youth Standard</div>
+                        </div>
+                    </div>
+                    <div
+                        class="p-space-sm rounded-lg bg-surface-container border border-outline-variant/30 flex items-center gap-space-sm">
+                        <span class="material-symbols-outlined text-secondary">military_tech</span>
+                        <div>
+                            <div class="text-on-surface font-medium">Pro Pathway Affiliation</div>
+                            <div class="text-xs text-on-surface-variant">UEFA &amp; Regional Scout Network</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div
+            class="max-w-[1320px] mx-auto px-margin-mobile lg:px-margin pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md font-body-sm text-body-sm">
+            <p class="text-on-surface-variant text-center md:text-left">© 2024 Hornstars Football Academy. All rights
+                reserved.</p>
+            <div class="flex items-center gap-space-lg"><a
+                    class="font-label-sm text-label-sm uppercase tracking-wider text-secondary hover:underline flex items-center gap-1"
+                    data-path="parent-portal-login" href="#login"><span
+                        class="material-symbols-outlined text-sm">lock</span>Parent &amp; Player Portal Login</a><a
+                    class="hover:text-on-surface transition-colors" href="#terms">Privacy &amp; Safeguarding</a></div>
+        </div>
+    </footer>
+    <script>
+        (function () {
+            var button = document.getElementById('mobile-menu-btn');
+            var drawer = document.getElementById('mobile-drawer');
+            var icon = document.getElementById('mobile-menu-icon');
+
+            if (!button || !drawer || !icon) return;
+
+            function setMenuOpen(isOpen) {
+                drawer.classList.toggle('hidden', !isOpen);
+                button.setAttribute('aria-expanded', String(isOpen));
+                button.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+                icon.textContent = isOpen ? 'close' : 'menu';
+            }
+
+            button.addEventListener('click', function () {
+                setMenuOpen(drawer.classList.contains('hidden'));
+            });
+
+            drawer.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    setMenuOpen(false);
+                });
+            });
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape') setMenuOpen(false);
+            });
+
+            window.addEventListener('resize', function () {
+                if (window.innerWidth >= 1024) setMenuOpen(false);
+            });
+        }());
+    </script>
+</body>
+
+</html>
