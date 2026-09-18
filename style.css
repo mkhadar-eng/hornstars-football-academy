@@ -47,17 +47,69 @@
     display: inline-block;
     vertical-align: middle;
   }
-  .cyan-glow-underline { position: relative; }
-  .cyan-glow-underline::after {
+  .nav-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.25s ease, transform 0.25s ease, background-color 0.25s ease;
+  }
+  .nav-link::after {
     content: '';
     position: absolute;
-    bottom: -2px; left: 0;
+    bottom: -3px; left: 0;
     width: 0; height: 2px;
-    background-color: #61f7fb;
-    transition: width 0.3s ease;
-    box-shadow: 0 0 8px rgba(97,247,251,0.6);
+    background-color: #ebc169;
+    transition: width 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 0 rgba(235,193,105,0);
   }
-  .hover-nav:hover::after { width: 100%; }
+  .nav-link:hover,
+  .nav-link:focus-visible {
+    color: #ebc169;
+    transform: translateY(-2px) scale(1.06);
+  }
+  .nav-link:hover::after,
+  .nav-link:focus-visible::after {
+    width: 100%;
+    box-shadow: 0 0 10px rgba(235,193,105,0.65);
+  }
+  .nav-link.is-active {
+    color: #ebc169 !important;
+    transform: translateY(-2px) scale(1.06);
+  }
+  .nav-link.is-active::after {
+    width: 100%;
+    box-shadow: 0 0 8px rgba(235,193,105,0.4);
+  }
+  .nav-link:focus-visible {
+    outline: 2px solid #ebc169;
+    outline-offset: 5px;
+    border-radius: 2px;
+  }
+  @media (max-width: 1023px) {
+    .nav-link {
+      width: 100%;
+      padding: 0.7rem 0.75rem;
+      border-radius: 0.25rem;
+    }
+    .nav-link::after {
+      bottom: 0.35rem;
+      left: 0.75rem;
+    }
+    .nav-link:hover,
+    .nav-link:focus-visible {
+      background-color: rgba(235,193,105,0.08);
+      transform: translateX(4px) scale(1.03);
+    }
+    .nav-link.is-active {
+      transform: translateX(4px) scale(1.03);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .nav-link,
+    .nav-link::after {
+      transition: none;
+    }
+  }
   .bento-card {
     transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
   }
